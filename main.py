@@ -137,11 +137,11 @@ async def add_member(m, user):
       except UserPrivacyRestricted:
 
         await bot.send_message(m.chat.id,"Gagal memasukkan user karena privasi!!\nMenjalankan tugas selanjutnya!!")
-
+        await asyncio.sleep(20)
       except UserNotMutualContact:
 
         await bot.send_message(m.chat.id,"Gagal memasukkan user karena bukan mutual kontak!!\nMenjalankan tugas selanjutnya!!")
-
+        await asyncio.sleep(20)
       except PeerFlood:
         await stt.delete()
         return await bot.send_message(m.chat.id,"Akun anda dibatasi atau limit silahkan coba dengan akun lain!!")
