@@ -129,7 +129,7 @@ async def add_member(m, user):
     if target.status in zxb:
 
       try:
-
+        await user.join_chat(to_chatid.text)
         await user.add_chat_members(to_chatid.text, target.id)
 
         await asyncio.sleep(20)
@@ -143,15 +143,16 @@ async def add_member(m, user):
         await bot.send_message(m.chat.id,"Gagal memasukkan user karena bukan mutual kontak!!\nMenjalankan tugas selanjutnya!!")
 
       except PeerFlood:
-
+        await stt.delete()
         return await bot.send_message(m.chat.id,"Akun anda dibatasi atau limit silahkan coba dengan akun lain!!")
 
       except FloodWait:
-
+        await stt.delete()
         return await bot.send_message(m.chat.id,"Akun anda mengalami **FLOODWAIT**\nSilahkan coba dengan akun lain!!")
 
       except Exception as e:
-
+        
+        await stt.delete()
         await bot.send_message(m.chat.id,f"**ERROR:** `{e}`")
 
         await asyncio.sleep(0.3)
