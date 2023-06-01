@@ -106,7 +106,7 @@ async def add_member(m, user):
 
   
 
-  pesan = f"Dalam prosess menambahkan member dari {from_chatid.text} ke {to_chatid.text}"
+  pesan = f"Dalam prosess menambahkan member dari {from_chatid.text} ke {to_chatid.text}\nSelang waktu penambahan member yaitu 20 detik"
 
   stt = await m.reply(pesan)
 
@@ -132,15 +132,15 @@ async def add_member(m, user):
 
         await user.add_chat_members(to_chatid.text, target.id)
 
-        await asyncio.sleep(5)
+        await asyncio.sleep(20)
 
       except UserPrivacyRestricted:
 
-        pass 
+        await stt.edit("Gagal memasukkan user karena privasi!!\nMenjalankan tugas selanjutnya!!")
 
       except UserNotMutualContact:
 
-        pass
+        await stt.edit("Gagal memasukkan user karena bukan mutual kontak!!\nMenjalankan tugas selanjutnya!!")
 
       except PeerFlood:
 
