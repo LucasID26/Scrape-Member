@@ -136,29 +136,29 @@ async def add_member(m, user):
 
       except UserPrivacyRestricted:
 
-        await stt.edit("Gagal memasukkan user karena privasi!!\nMenjalankan tugas selanjutnya!!")
+        await bot.send_message(m.chat.id,"Gagal memasukkan user karena privasi!!\nMenjalankan tugas selanjutnya!!")
 
       except UserNotMutualContact:
 
-        await stt.edit("Gagal memasukkan user karena bukan mutual kontak!!\nMenjalankan tugas selanjutnya!!")
+        await bot.send_message(m.chat.id,"Gagal memasukkan user karena bukan mutual kontak!!\nMenjalankan tugas selanjutnya!!")
 
       except PeerFlood:
 
-        return await stt.edit("Akun anda dibatasi atau limit silahkan coba dengan akun lain!!")
+        return await bot.send_message(m.chat.id,"Akun anda dibatasi atau limit silahkan coba dengan akun lain!!")
 
       except FloodWait:
 
-        return await stt.edit("Akun anda mengalami **FLOODWAIT**\nSilahkan coba dengan akun lain!!")
+        return await bot.send_message(m.chat.id,"Akun anda mengalami **FLOODWAIT**\nSilahkan coba dengan akun lain!!")
 
       except Exception as e:
 
-        await stt.edit(f"**ERROR:** `{e}`")
+        await bot.send_message(m.chat.id,f"**ERROR:** `{e}`")
 
         await asyncio.sleep(0.3)
 
         return 
-
-  await stt.edit("**BERHASIL**✅")
+  await stt.delete()
+  await bot.send_message(m.chat.id,"**BERHASIL**✅")
 
       
 
